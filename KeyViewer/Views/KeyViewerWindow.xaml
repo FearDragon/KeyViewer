@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:KeyViewer"
         mc:Ignorable="d"
         Title="Key Viewer"
-        SizeToContent="WidthAndHeight"
         AllowsTransparency="True"
         WindowStyle="None"
-        Topmost="True">
+        Topmost="True"
+        >
     <Window.Background>
         <SolidColorBrush Color="Black"
                          Opacity="0.01" />

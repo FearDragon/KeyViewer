@@ -14,6 +14,8 @@ namespace KeyViewer
 
         private SettingsWindow settingsWindow;
 
+        public SettingsWindow Settings => settingsWindow;
+
         public KeyViewerWindow() {
             InitializeComponent();
 
@@ -21,8 +23,12 @@ namespace KeyViewer
 
             KeyModels = KeyModelCollection.Instance;
 
-            Left = Config.Instance.WindowX;
-            Top = Config.Instance.WindowY;
+            // Left = Config.Instance.WindowX;
+            // Top = Config.Instance.WindowY;
+            // Left = 0;
+            // Top = 0;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            SizeToContent = SizeToContent.Manual;
 
             settingsWindow = new SettingsWindow();
 
@@ -39,7 +45,8 @@ namespace KeyViewer
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e) {
             base.OnMouseLeftButtonDown(e);
 
-            DragMove();
+            if (!settingsWindow.MoveIndividually)
+                DragMove();
         }
 
         protected override void OnLocationChanged(EventArgs e) {

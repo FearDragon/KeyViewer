@@ -106,6 +106,14 @@
             <Label Content="Key Size:"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
+            <CheckBox Content="Individually Move Keys:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,40,0,0"
+                   Checked="MoveKeyIndividuallyChecked"
+                   Unchecked="MoveKeyIndividuallyUnchecked"
+                   IsChecked="True"
+                   />
             <Label Content="Active Fill Color:"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"

@@ -11,6 +11,8 @@ namespace KeyViewer
     {
         private SettingsViewModel viewModel;
 
+        public bool MoveIndividually { get; private set; } = true;
+        
         public SettingsWindow() {
             InitializeComponent();
 
@@ -44,6 +46,16 @@ namespace KeyViewer
             if (viewModel != null) {
                 viewModel.KeySize = e.NewValue;
             }
+        }
+        
+        private void MoveKeyIndividuallyChecked(object sender, RoutedEventArgs args)
+        {
+            MoveIndividually = true;
+        }
+        
+        private void MoveKeyIndividuallyUnchecked(object sender, RoutedEventArgs args)
+        {
+            MoveIndividually = false;
         }
 
         private void SizeSliderLostFocus(object sender, RoutedEventArgs e) {
