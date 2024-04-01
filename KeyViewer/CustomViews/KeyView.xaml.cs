@@ -138,5 +138,32 @@ namespace KeyViewer
                 Margin = new Thickness(size / 10, 0, 0, 0);
             }
         }
+
+        private bool _pressed;
+        
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseDown(e);
+            _pressed = true;
+            Mouse.Capture(this);
+        }
+
+        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonUp(e);
+            _pressed = false;
+            Mouse.Capture(null);
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            
+            if (_pressed && ((KeyViewerWindow)Window.GetWindow(this)).Settings.MoveIndividually)
+            {
+                GridTransform.X = Mouse.GetPosition(this).X;
+                GridTransform.Y = Mouse.GetPosition(this).Y;
+            }
+        }
     }
 }

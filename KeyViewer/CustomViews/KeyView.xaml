@@ -8,7 +8,11 @@
              d:DesignWidth="100">
     <Grid MinWidth="100"
           MinHeight="100"
+          MaxHeight="100"
           x:Name="grid">
+        <Grid.RenderTransform>
+            <TranslateTransform x:Name="GridTransform"/>
+        </Grid.RenderTransform>
         <Rectangle Grid.Row="0"
                    Grid.Column="0"
                    x:Name="rectangle"
@@ -16,7 +20,10 @@
                    Height="{Binding ActualHeight, ElementName=parentElementName}"
                    Fill="Transparent"
                    Stroke="White"
-                   StrokeThickness="3">
+                   StrokeThickness="3"
+                   MaxHeight="100"
+                   >
+            
         </Rectangle>
         <Label Grid.Row="0"
                Grid.Column="0"
@@ -27,7 +34,9 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                FontSize="50"
-               Foreground="White" />
+               Foreground="White" 
+               MaxHeight="100"
+               />
         <Grid.LayoutTransform>
             <ScaleTransform x:Name="scaleTransform"
                             ScaleX="1"
